@@ -3,16 +3,16 @@ import React from 'react';
 export class App extends React.Component {
   state = { keypressed: '' };
 
-  handleKeyup = (event: KeyboardEvent) => {
+  updateLastKeyPressed = (event: KeyboardEvent) => {
     this.setState({ keypressed: event.key });
   };
 
   componentDidMount(): void {
-    document.addEventListener('keyup', this.handleKeyup);
+    document.addEventListener('keyup', this.updateLastKeyPressed);
   }
 
   componentWillUnmount(): void {
-    document.removeEventListener('keyup', this.handleKeyup);
+    document.removeEventListener('keyup', this.updateLastKeyPressed);
   }
 
   render() {
